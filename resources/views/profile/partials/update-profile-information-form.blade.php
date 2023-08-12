@@ -1,8 +1,5 @@
 <section>
-    @php 
-        $options = ['1' => 'Pogoda', '2' => 'Kultura', '3' => "Sport"];
-        $channels = [1, 2, 3];
-    @endphp
+  
 
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
