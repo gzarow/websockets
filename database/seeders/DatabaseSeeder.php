@@ -36,7 +36,6 @@ class DatabaseSeeder extends Seeder
                 ['slug' => $channel['slug']],
                 $channel
             );
-        }
-        
+        }     
     }
 }

@@ -19,6 +19,7 @@ class ProfileController extends Controller
     {
         $user = $request->user();
         $options = Channel::getOptions()->toArray();
+        
         return view('profile.edit', [
             'user' => $user,
             'options' => $options,
