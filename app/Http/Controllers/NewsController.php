@@ -14,7 +14,8 @@ class NewsController extends Controller
      */
     public function index(Request $request): View
     {
-        $news = News::get();
+        $cahannelsIds = $request->user()->channels->pluck('id')->toArray();
+        $news = News::getSubscribed($cahannelsIds);
         return view('news.index', [
             'news' => $news,
         ]);
