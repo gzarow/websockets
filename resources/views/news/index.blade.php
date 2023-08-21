@@ -9,8 +9,8 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="px-2">{{ $item->channel->name }}</div>
-                    <div  class="px-6 py-4 whitespace-nowrap text-lg text-black-500">
+                    <img src="icons/{{$item->channel->slug}}.png" alt="{{$item->channel->slug}}" class="p-2" style="width:60px;" />
+                    <div  class="px-6  whitespace-nowrap text-black-600">
                         {{ $item->title }}
                     </div>
                     <div class="p-6 text-gray-900 dark:text-gray-100">
