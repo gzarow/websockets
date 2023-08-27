@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Channel;
+use App\Models\News;
+use App\Events\NewsAdded;
 
 class ProfileController extends Controller
 {
@@ -17,6 +19,9 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        //TODO::Usunąć tylko dla testów
+        $news = News::where('channel_id', 3)->first();
+        event(new NewsAdded($news));
         $user = $request->user();
         $options = Channel::getOptions()->toArray();
         
