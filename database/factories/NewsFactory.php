@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use App\Models\Channel;
 
 /**
@@ -21,7 +20,7 @@ class NewsFactory extends Factory
         $channels = Channel::get()->pluck('id')->toArray();
         return [
             'title' => fake()->text(30),
-            'content' => fake()->text(300),
+            'content' => fake()->text(600),
             'channel_id' => fake()->randomElement($channels),
         ];
     }

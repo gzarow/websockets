@@ -33,4 +33,8 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::middleware('news-api')->group(function () {
+    Route::post('/api/add-news', [NewsController::class, 'addNews'])->name('news.add');
+});
+
 require __DIR__.'/auth.php';

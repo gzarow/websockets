@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Events\NewsAdded;
 use Illuminate\View\View;
 use App\Models\News;
 
@@ -21,5 +21,24 @@ class NewsController extends Controller
             'news' => $news,
             'channels' => $channels
         ]);
+    }
+
+    /**
+     * Metoda api do zapisu wiadomości
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addNews(Request $request)
+    {
+        try 
+        {
+            $news = News::create($request->all());
+            event(new NewsAdded($news));
+        }
+        catch (\Throwable $e) 
+        {
+            return response()->json(['success' => false, 'message' => $e->getMessage()]);
+        }
+        return response()->json(['success' => true, 'message' => __('Wiadomość została zapisana poprawnie')]);
     }
 }
