@@ -26,7 +26,7 @@
     $(document).ready(function() {
         const channels = @json($channels);
         channels.forEach(channel => {
-            Echo.channel(channel)
+            Echo.private('news.'+ channel)
                 .listen('NewsAdded', (data) => {
                     $('#websockets').prepend(
                         `<div class="py-12">

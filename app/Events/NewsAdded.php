@@ -33,7 +33,7 @@ class NewsAdded implements ShouldBroadcastNow
     public function broadcastOn(): array
     {
         return [
-            new Channel($this->news->channel->slug),
+            new PrivateChannel('news.'.$this->news->channel->slug),
         ];
     }
 }
