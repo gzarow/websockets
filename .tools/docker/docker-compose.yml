@@ -34,6 +34,8 @@ services:
       - mysql:mysql
     volumes:
       - ../../:/home/www
+    ports:
+      - 6001:6001
 
   nginx:
     image: nginx:1-alpine
